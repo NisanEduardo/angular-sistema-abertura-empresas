@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "mock": "npx json-server --watch src/mocks/db.json",
     "serve:ssr:angular-sistema-abertura-empresas": "node dist/angular-sistema-abertura-empresas/server/server.mjs"
   },
   "private": true,
