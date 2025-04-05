@@ -1,19 +1,19 @@
 import { createReducer, on } from "@ngrx/store";
-
-import { populateCompaniesArray } from "./companies.actions";
+import { setCompanies } from "./companies.actions";
 import type { ICompany } from "../../interfaces/companies.interface";
 
-export interface ICompaniesReducer {
-	companies: ICompany[] | [];
+export interface ICompaniesState {
+	companies: ICompany[];
 }
 
-const initialState: ICompaniesReducer = {
+export const initialState: ICompaniesState = {
 	companies: [],
 };
 
 export const companiesReducer = createReducer(
 	initialState,
-	on(populateCompaniesArray, (_, action) => ({
+	on(setCompanies, (state, action) => ({
+		...state,
 		companies: action.companies,
 	})),
 );
