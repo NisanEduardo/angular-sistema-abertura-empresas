@@ -1,7 +1,7 @@
 export interface ICompany {
 	solicitante: IApplicant;
 	empresa: TEmpresa;
-	id: string;
+	id: number;
 }
 
 interface IApplicant {
@@ -21,7 +21,7 @@ interface IEndereco {
 	co_cep: number;
 	ds_logradouro: string;
 	co_numero: string;
-	ds_complemento?: string;
+	ds_complemento?: string | null;
 	ds_bairro: string;
 	ds_municipio: string;
 	co_uf: string;
