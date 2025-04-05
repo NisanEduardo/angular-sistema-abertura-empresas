@@ -1,19 +1,18 @@
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import type { ICompany } from "./interfaces/companies.interface";
 // biome-ignore lint/style/useImportType: <explanation>
 import { CompaniesService } from "./services/companies/companies.service";
 
+import { map, Observable } from "rxjs";
 import { Store } from "@ngrx/store";
-import type { ICompaniesReducer } from "./store/companies/companies.reducer";
-import { populateCompaniesArray } from "./store/companies/companies.actions";
-
-import { map, pipe, take } from "rxjs";
+import { AsyncPipe } from "@angular/common";
+import type { ICompaniesState } from "./store/companies/companies.reducer";
+import { setCompanies } from "./store/companies/companies.actions";
 
 @Component({
 	selector: "app-root",
 	standalone: true,
-	imports: [RouterOutlet],
+	imports: [RouterOutlet, AsyncPipe],
 	templateUrl: "./app.component.html",
 	styleUrl: "./app.component.scss",
 })
@@ -22,7 +21,7 @@ export class AppComponent {
 
 	constructor(
 		private companiesService: CompaniesService,
-		private store: Store<{ companiesStore: ICompaniesReducer }>,
+		private store: Store<{ companiesStore: ICompaniesState }>,
 	) {
 		this.companies$ = this.store
 			.select("companiesStore")
@@ -35,7 +34,7 @@ export class AppComponent {
 
 	getCompanies() {
 		return this.companiesService.getCompanies().subscribe((response) => {
-			this.store.dispatch(populateCompaniesArray(response));
+			this.store.dispatch(setCompanies(response));
 		});
 	}
 }

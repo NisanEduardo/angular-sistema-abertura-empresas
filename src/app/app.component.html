@@ -1,12 +1,3 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 <style>
   h1 {
     font-size: 3.125rem;
@@ -76,22 +67,9 @@
 <main class="main">
   <div class="content">
     <div class="left-side">
-      <ul>
-        <!-- @for (company of companies; track $index) {
-        <li>
-          <div>
-            <p>
-              {{ company.id }}
-            </p>
-            <div>
-              <span> {{ company.solicitante.ds_responsavel }}</span>
-              <span> {{ company.empresa.ds_nome_fantasia }}</span>
-            </div>
-            <button>Visualizar</button>
-          </div>
-        </li>
-        } -->
-      </ul>
+      @for (item of companies$ | async; track $index) {
+      <p>{{ item.solicitante.date_nascimento }}</p>
+      }
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
@@ -99,13 +77,5 @@
     </div>
   </div>
 </main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <router-outlet />
