@@ -1,7 +1,7 @@
 export interface ICompany {
-	solicitante: IApplicant;
-	empresa: TEmpresa;
-	id: number;
+	solicitante?: IApplicant;
+	empresa?: TEmpresa;
+	id?: number;
 }
 
 interface IApplicant {

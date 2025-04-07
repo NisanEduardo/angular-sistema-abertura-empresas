@@ -68,14 +68,22 @@
   <div class="content">
     <div class="left-side">
       @for (item of companies$ | async; track $index) {
-      <p>{{ item.solicitante.date_nascimento }}</p>
+      <h2>Nome Fantasia: {{ item.empresa?.ds_nome_fantasia }}</h2>
+      <p>Solicitante: {{ item.solicitante?.ds_responsavel }}</p>
+      <button (click)="onViewClick(item)">Visualizar</button>
       }
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
-      <p>right side</p>
+      <h2>Current selected company</h2>
+      <ul>
+        <li>
+          <h3>Company ID:</h3>
+          {{ (currentSelectedCompany$ | async)?.id }}
+          <h3>Company Fanatasy Name:</h3>
+          {{ (currentSelectedCompany$ | async)?.empresa?.ds_nome_fantasia }}
+        </li>
+      </ul>
     </div>
   </div>
 </main>
-
-<router-outlet />

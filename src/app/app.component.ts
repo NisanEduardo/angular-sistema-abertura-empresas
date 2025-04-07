@@ -1,13 +1,24 @@
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
+import { AsyncPipe } from "@angular/common";
+
+import { Observable } from "rxjs";
+import { Store } from "@ngrx/store";
+
 // biome-ignore lint/style/useImportType: <explanation>
 import { CompaniesService } from "./services/companies/companies.service";
-
-import { map, Observable } from "rxjs";
-import { Store } from "@ngrx/store";
-import { AsyncPipe } from "@angular/common";
 import type { ICompaniesState } from "./store/companies/companies.reducer";
-import { setCompanies } from "./store/companies/companies.actions";
+import {
+	setCompanies,
+	setCurrentSelectedCompany,
+} from "./store/companies/companies.actions";
+
+import {
+	selectCompaniesStore,
+	selectCurrentCompanyStore,
+} from "./store/companies/companies.selectors";
+
+import type { ICompany } from "./interfaces/companies.interface";
 
 @Component({
 	selector: "app-root",
@@ -17,15 +28,15 @@ import { setCompanies } from "./store/companies/companies.actions";
 	styleUrl: "./app.component.scss",
 })
 export class AppComponent {
-	companies$;
+	companies$: Observable<ICompany[]>;
+	currentSelectedCompany$: Observable<ICompany>;
 
 	constructor(
 		private companiesService: CompaniesService,
 		private store: Store<{ companiesStore: ICompaniesState }>,
 	) {
-		this.companies$ = this.store
-			.select("companiesStore")
-			.pipe(map((e) => e.companies));
+		this.companies$ = this.store.select(selectCompaniesStore);
+		this.currentSelectedCompany$ = this.store.select(selectCurrentCompanyStore);
 	}
 
 	ngOnInit(): void {
@@ -36,5 +47,9 @@ export class AppComponent {
 		return this.companiesService.getCompanies().subscribe((response) => {
 			this.store.dispatch(setCompanies(response));
 		});
+	}
+
+	onViewClick(company: ICompany) {
+		this.store.dispatch(setCurrentSelectedCompany(company));
 	}
 }
