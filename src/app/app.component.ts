@@ -19,11 +19,12 @@ import {
 } from "./store/companies/companies.selectors";
 
 import type { ICompany } from "./interfaces/companies.interface";
+import { CurrentCompanyComponent } from "./components/current-company/current-company.component";
 
 @Component({
 	selector: "app-root",
 	standalone: true,
-	imports: [RouterOutlet, AsyncPipe],
+	imports: [RouterOutlet, AsyncPipe, CurrentCompanyComponent],
 	templateUrl: "./app.component.html",
 	styleUrl: "./app.component.scss",
 })
