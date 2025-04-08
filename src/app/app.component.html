@@ -4,9 +4,19 @@
       <ul>
         @for (item of companies$ | async; track $index) {
         <li>
-          <h2>Nome Fantasia: {{ item.empresa?.ds_nome_fantasia }}</h2>
-          <p>Solicitante: {{ item.solicitante?.ds_responsavel }}</p>
-          <button (click)="onViewClick(item)">Visualizar</button>
+          <div class="companyResumeDetails">
+            <p>
+              <span class="companyDetails_Label">{{
+                item.solicitante?.ds_responsavel
+              }}</span
+              ><br />{{ item.empresa?.ds_nome_fantasia }}
+            </p>
+            <div>
+              <button class="primary" (click)="onViewClick(item)">
+                Visualizar
+              </button>
+            </div>
+          </div>
         </li>
         }
       </ul>

@@ -1,0 +1,16 @@
+li {
+  border:  2px solid var(--app-pink-color);
+  margin: 10px 0;
+  padding: 10px 20px;
+}
+
+.companyResumeDetails {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+}
