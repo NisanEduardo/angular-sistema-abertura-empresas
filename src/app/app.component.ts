@@ -20,11 +20,17 @@ import {
 
 import type { ICompany } from "./interfaces/companies.interface";
 import { CurrentCompanyComponent } from "./components/current-company/current-company.component";
+import { CompanyFormComponent } from "./components/company-form/company-form.component";
 
 @Component({
 	selector: "app-root",
 	standalone: true,
-	imports: [RouterOutlet, AsyncPipe, CurrentCompanyComponent],
+	imports: [
+		RouterOutlet,
+		AsyncPipe,
+		CurrentCompanyComponent,
+		CompanyFormComponent,
+	],
 	templateUrl: "./app.component.html",
 	styleUrl: "./app.component.scss",
 })
