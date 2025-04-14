@@ -20,7 +20,7 @@
           "co_uf": "29"
         }
       },
-      "id": 1
+      "id": "1"
     },
     {
       "solicitante": {
@@ -42,25 +42,51 @@
           "co_uf": "28"
         }
       },
-      "id": 2
+      "id": "2"
+    },
+    {
+      "solicitante": {
+        "ds_responsavel": "Nisan Eduardo Leite",
+        "nu_cpf": "12345678909",
+        "date_nascimento": "1987-05-14"
+      },
+      "empresa": {
+        "ds_nome_fantasia": "NEL Criação de Software",
+        "co_entidade_registro": 203845,
+        "co_natureza_juridica": 21350,
+        "endereco": {
+          "co_cep": 30140071,
+          "ds_logradouro": "Avenida do Contorno",
+          "co_numero": "1578",
+          "ds_complemento": "Sala 702",
+          "ds_bairro": "Funcionários",
+          "ds_municipio": "Belo Horizonte",
+          "co_uf": "31"
+        }
+      },
+      "id": "3"
     }
   ],
   "entidade-registro": [
     {
       "key": 104305,
-      "value": "Cartório"
+      "value": "Cartório",
+      "id": "921e"
     },
     {
       "key": 104306,
-      "value": "Junta Comercial"
+      "value": "Junta Comercial",
+      "id": "8ace"
     },
     {
       "key": 104308,
-      "value": "OAB"
+      "value": "OAB",
+      "id": "fa70"
     },
     {
       "key": 104309,
-      "value": "RFB"
+      "value": "RFB",
+      "id": "4e23"
     }
   ]
 }
