@@ -1,33 +1,7 @@
 <main class="main">
-  <div class="content">
-    <!-- <div class="left-side">
-      <ul>
-        @for (item of companies$ | async; track $index) {
-        <li>
-          <div class="companyResumeDetails">
-            <p>
-              <span class="companyDetails_Label">{{
-                item.solicitante?.ds_responsavel
-              }}</span
-              ><br />{{ item.empresa?.ds_nome_fantasia }}
-            </p>
-            <div>
-              <button class="primary" (click)="onViewClick(item)">
-                Visualizar
-              </button>
-            </div>
-          </div>
-        </li>
-        }
-      </ul>
+  <div class="container-xl">
+    <div class="row">
+      <app-companies-list />
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <app-current-company />
-    </div>
-
-    <div class="right-side"> -->
-    <app-company-form />
-    <!-- </div> -->
   </div>
 </main>
