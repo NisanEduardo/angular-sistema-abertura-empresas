@@ -110,10 +110,14 @@ h3 {
   }
 
 
-  .divider {
+  .divider:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
     width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
+    height: 100%;
+    background-color: var(--app-pink-color);
   }
 
   button {
