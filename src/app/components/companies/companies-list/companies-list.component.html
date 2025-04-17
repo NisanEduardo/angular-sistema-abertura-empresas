@@ -1,11 +1,14 @@
 <div class="col col-md-6">
   <ul>
     @for (company of companies$ | async; track $index) {
-    <app-company-item [item]="company" />
+    <app-company-item
+      [item]="company"
+      (newCurrentyCompanyEvent)="changeCurrentCompany($event)"
+    />
     }
   </ul>
 </div>
 <div class="divider" role="separator" aria-label="Divider"></div>
-<div class="right-side">
-  <!-- <app-current-company /> -->
+<div class="col col-md-6">
+  <app-current-company [currentCompany]="currentSelectedCompany$" />
 </div>

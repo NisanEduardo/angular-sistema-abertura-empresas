@@ -1,0 +1,47 @@
+<section>
+  <header>
+    <h2>Detalhes do pedido</h2>
+  </header>
+
+  <article>
+    <div>
+      <h4>{{ (currentCompany | async)?.empresa?.ds_nome_fantasia }}</h4>
+      <div class="companyDetails">
+        <span class="companyDetails_Label">Responsável:</span>
+        {{ (currentCompany | async)?.solicitante?.ds_responsavel }} <br />
+
+        <span class="companyDetails_Label">CPF:</span>
+        {{ convertToCpfFormat((currentCompany | async)?.solicitante?.nu_cpf)
+        }}<br />
+
+        <span class="companyDetails_Label">Endereço:</span>
+        {{ (currentCompany | async)?.empresa?.endereco?.ds_logradouro }} <br />
+
+        <span class="companyDetails_Label">Bairro:</span>
+        {{ (currentCompany | async)?.empresa?.endereco?.ds_bairro }} <br />
+
+        <span class="companyDetails_Label">Cidade:</span>
+        {{ (currentCompany | async)?.empresa?.endereco?.ds_municipio }} <br />
+
+        <span class="companyDetails_Label">CEP:</span>
+        {{
+          convertToCEPFormat(
+            (currentCompany | async)?.empresa?.endereco?.co_cep
+          )
+        }}<br />
+
+        @if((currentCompany | async)?.empresa?.endereco?.ds_complemento ) {
+        <span class="companyDetails_Label">Complemento:</span>
+        {{ (currentCompany | async)?.empresa?.endereco?.ds_complemento }}
+        <br />
+        }
+
+        <span class="companyDetails_Label">UF:</span>
+        {{ (currentCompany | async)?.empresa?.endereco?.co_uf }} <br />
+
+        <span class="companyDetails_Label">Número:</span>
+        {{ (currentCompany | async)?.empresa?.endereco?.co_numero }} <br />
+      </div>
+    </div>
+  </article>
+</section>

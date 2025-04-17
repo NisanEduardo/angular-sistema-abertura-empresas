@@ -16,11 +16,12 @@ import {
 } from '../../../store/companies/companies.actions';
 import { CompanyItemComponent } from '../company-item/company-item.component';
 import { AsyncPipe } from '@angular/common';
+import { CurrentCompanyComponent } from '../current-company/current-company.component';
 
 @Component({
   selector: 'app-companies-list',
   standalone: true,
-  imports: [AsyncPipe, CompanyItemComponent],
+  imports: [AsyncPipe, CompanyItemComponent, CurrentCompanyComponent],
   templateUrl: './companies-list.component.html',
   styleUrl: './companies-list.component.scss',
 })
@@ -44,5 +45,9 @@ export class CompaniesListComponent {
     return this.companiesService.listCompanies().subscribe((response) => {
       this.store.dispatch(setCompanies(response));
     });
+  }
+
+  changeCurrentCompany(company: ICompany) {
+    this.store.dispatch(setCurrentSelectedCompany(company));
   }
 }
