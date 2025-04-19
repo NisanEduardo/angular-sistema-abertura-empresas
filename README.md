@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+https://angular.dev/guide/forms/template-driven-forms
+https://andrewrosario.medium.com/formul%C3%A1rios-din%C3%A2micos-com-componentes-din%C3%A2micos-no-angular-d09b8830a1d4
+
+https://www.fabricadecodigo.com/criar-formulario-reactive-forms/
+
+https://www.freecodecamp.org/portuguese/news/como-validar-formularios-do-angular-orientados-a-templates/
+
+https://www.fabricadecodigo.com/criar-formulario-template-driven-forms/
