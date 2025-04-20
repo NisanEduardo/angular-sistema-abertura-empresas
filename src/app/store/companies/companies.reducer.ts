@@ -39,8 +39,12 @@ export const companiesReducer = createReducer(
 		...state,
 		companies: action.companies,
 	})),
-	on(setCurrentSelectedCompany, (state, action) => ({
-		...state,
-		currentSelectedCompany: action.company,
-	})),
+	on(setCurrentSelectedCompany, (state, action) => {
+		localStorage.setItem("currentCompanyLocal", JSON.stringify(action.company));
+
+		return {
+			...state,
+			currentSelectedCompany: action.company,
+		};
+	}),
 );
