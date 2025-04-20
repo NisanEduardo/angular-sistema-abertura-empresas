@@ -1,197 +1,193 @@
-<div class="container">
-  <form action="" class="row" (ngSubmit)="onSubmit()" #companyForm="ngForm">
-    <div class="container">
-      <div class="row">
-        <div class="col col-md-6">
-          <section>
-            <h3>Dados do solictante</h3>
-            <div class="form-group">
-              <label for="ds_responsavel">Responável pela empresa*</label>
-              <input
-                type="text"
-                class="form-control"
-                id="ds_responsavel"
-                required
-                name="ds_responsavel"
-                [(ngModel)]="model.companyModel.solicitante.ds_responsavel"
-                #ds_responsavel="ngModel"
-              />
-              <div [hidden]="ds_responsavel.valid" class="alert alert-danger">
-                Nome do responsável é obrigatório
-              </div>
+<form action="" class="row" (ngSubmit)="onSubmit()" #companyForm="ngForm">
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-6">
+        <section>
+          <h3>Dados do solictante</h3>
+          <div class="form-group">
+            <label for="ds_responsavel">Responável pela empresa*</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ds_responsavel"
+              required
+              name="ds_responsavel"
+              [(ngModel)]="model.companyModel.solicitante.ds_responsavel"
+              #ds_responsavel="ngModel"
+            />
+            <div [hidden]="ds_responsavel.valid" class="alert alert-danger">
+              Nome do responsável é obrigatório
             </div>
+          </div>
 
-            <div class="form-group">
-              <label for="nu_cpf">CPF*</label>
-              <input
-                type="text"
-                class="form-control"
-                id="nu_cpf"
-                required
-                name="nu_cpf"
-                [(ngModel)]="model.companyModel.solicitante.nu_cpf"
-                #nu_cpf="ngModel"
-              />
-              <div [hidden]="nu_cpf.valid" class="alert alert-danger">
-                CPF do responsável é obrigatório
-              </div>
+          <div class="form-group">
+            <label for="nu_cpf">CPF*</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nu_cpf"
+              required
+              name="nu_cpf"
+              [(ngModel)]="model.companyModel.solicitante.nu_cpf"
+              #nu_cpf="ngModel"
+            />
+            <div [hidden]="nu_cpf.valid" class="alert alert-danger">
+              CPF do responsável é obrigatório
             </div>
+          </div>
 
-            <div class="form-group">
-              <label for="date_nascimento">Data de nascimento*</label>
-              <input
-                type="text"
-                class="form-control"
-                id="date_nascimento"
-                required
-                name="date_nascimento"
-                [(ngModel)]="model.companyModel.solicitante.date_nascimento"
-                #date_nascimento="ngModel"
-              />
-              <div [hidden]="date_nascimento.valid" class="alert alert-danger">
-                Data de nascimento do responsável é obrigatório
-              </div>
+          <div class="form-group">
+            <label for="date_nascimento">Data de nascimento*</label>
+            <input
+              type="text"
+              class="form-control"
+              id="date_nascimento"
+              required
+              name="date_nascimento"
+              [(ngModel)]="model.companyModel.solicitante.date_nascimento"
+              #date_nascimento="ngModel"
+            />
+            <div [hidden]="date_nascimento.valid" class="alert alert-danger">
+              Data de nascimento do responsável é obrigatório
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section>
-            <h3>Dados da empresa</h3>
-            <div class="form-group">
-              <label for="ds_nome_fantasia">Nome fantasia*</label>
-              <input
-                class="form-control"
-                type="text"
-                name="ds_nome_fantasia"
-                id="ds_nome_fantasia"
-                required
-                [(ngModel)]="model.companyModel.empresa.ds_nome_fantasia"
-                #ds_nome_fantasia="ngModel"
-              />
-              <div [hidden]="ds_nome_fantasia.valid" class="alert alert-danger">
-                Nome fantasia da empresa é obrigatório
-              </div>
+        <section>
+          <h3>Dados da empresa</h3>
+          <div class="form-group">
+            <label for="ds_nome_fantasia">Nome fantasia*</label>
+            <input
+              class="form-control"
+              type="text"
+              name="ds_nome_fantasia"
+              id="ds_nome_fantasia"
+              required
+              [(ngModel)]="model.companyModel.empresa.ds_nome_fantasia"
+              #ds_nome_fantasia="ngModel"
+            />
+            <div [hidden]="ds_nome_fantasia.valid" class="alert alert-danger">
+              Nome fantasia da empresa é obrigatório
             </div>
+          </div>
 
-            <div class="form-group">
-              <p>Escolha sua entidade de registro*</p>
-              <div>
-                @for(entRegistro of entidade; track $index ) {
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="co_entidade_registro"
-                    id="{{ entRegistro }}"
-                    value="{{ entRegistro }}"
-                    [(ngModel)]="
-                      model.companyModel.empresa.co_entidade_registro
-                    "
-                    #co_entidade_registro="ngModel"
-                  />
-                  <label class="form-check-label" for="entRegistro">
-                    {{ entRegistro }}
-                  </label>
-                </div>
-                }
+          <div class="form-group">
+            <p>Escolha sua entidade de registro*</p>
+            <div>
+              @for(entRegistro of entidade; track $index ) {
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="co_entidade_registro"
+                  id="{{ entRegistro }}"
+                  value="{{ entRegistro }}"
+                  [(ngModel)]="model.companyModel.empresa.co_entidade_registro"
+                  #co_entidade_registro="ngModel"
+                />
+                <label class="form-check-label" for="entRegistro">
+                  {{ entRegistro }}
+                </label>
               </div>
+              }
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
+      </div>
 
-        <div class="col col-md-6">
-          <section class="row">
-            <h3>Endereço da empresa</h3>
-            <div class="form-group">
-              <label for="co_cep">CEP*</label>
-              <input
-                type="text"
-                class="form-control"
-                id="co_cep"
-                required
-                name="co_cep"
-                [(ngModel)]="model.companyModel.empresa.endereco.co_cep"
-                #co_cep="ngModel"
-              />
-              <div [hidden]="co_cep.valid" class="alert alert-danger">
-                CEP da empresa é obrigatório
-              </div>
+      <div class="col col-md-6">
+        <section class="row">
+          <h3>Endereço da empresa</h3>
+          <div class="form-group">
+            <label for="co_cep">CEP*</label>
+            <input
+              type="text"
+              class="form-control"
+              id="co_cep"
+              required
+              name="co_cep"
+              [(ngModel)]="model.companyModel.empresa.endereco.co_cep"
+              #co_cep="ngModel"
+            />
+            <div [hidden]="co_cep.valid" class="alert alert-danger">
+              CEP da empresa é obrigatório
             </div>
+          </div>
 
-            <div class="form-group">
-              <label for="ds_logradouro">Endereço*</label>
-              <input
-                type="text"
-                class="form-control"
-                id="ds_logradouro"
-                required
-                name="ds_logradouro"
-                [(ngModel)]="model.companyModel.empresa.endereco.ds_logradouro"
-                #ds_logradouro="ngModel"
-              />
-              <div [hidden]="ds_logradouro.valid" class="alert alert-danger">
-                Logradouro da empresa é obrigatório
-              </div>
+          <div class="form-group">
+            <label for="ds_logradouro">Endereço*</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ds_logradouro"
+              required
+              name="ds_logradouro"
+              [(ngModel)]="model.companyModel.empresa.endereco.ds_logradouro"
+              #ds_logradouro="ngModel"
+            />
+            <div [hidden]="ds_logradouro.valid" class="alert alert-danger">
+              Logradouro da empresa é obrigatório
             </div>
+          </div>
 
-            <div class="form-group">
-              <label for="ds_bairro">Bairro*</label>
-              <input
-                type="text"
-                class="form-control"
-                id="ds_bairro"
-                required
-                name="ds_bairro"
-                [(ngModel)]="model.companyModel.empresa.endereco.ds_bairro"
-                #ds_bairro="ngModel"
-              />
-              <div [hidden]="ds_bairro.valid" class="alert alert-danger">
-                Bairro da empresa é obrigatório
-              </div>
+          <div class="form-group">
+            <label for="ds_bairro">Bairro*</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ds_bairro"
+              required
+              name="ds_bairro"
+              [(ngModel)]="model.companyModel.empresa.endereco.ds_bairro"
+              #ds_bairro="ngModel"
+            />
+            <div [hidden]="ds_bairro.valid" class="alert alert-danger">
+              Bairro da empresa é obrigatório
             </div>
+          </div>
 
-            <div class="form-group">
-              <label for="ds_complemento">Complemento*</label>
-              <input
-                type="text"
-                class="form-control"
-                id="ds_complemento"
-                required
-                name="ds_complemento"
-                [(ngModel)]="model.companyModel.empresa.endereco.ds_complemento"
-                #ds_complemento="ngModel"
-              />
+          <div class="form-group">
+            <label for="ds_complemento">Complemento*</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ds_complemento"
+              required
+              name="ds_complemento"
+              [(ngModel)]="model.companyModel.empresa.endereco.ds_complemento"
+              #ds_complemento="ngModel"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="ds_municipio">Cidade*</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ds_municipio"
+              required
+              name="ds_municipio"
+              [(ngModel)]="model.companyModel.empresa.endereco.ds_municipio"
+              #ds_municipio="ngModel"
+            />
+            <div [hidden]="ds_municipio.valid" class="alert alert-danger">
+              Município da empresa é obrigatório
             </div>
+          </div>
+        </section>
 
-            <div class="form-group">
-              <label for="ds_municipio">Cidade*</label>
-              <input
-                type="text"
-                class="form-control"
-                id="ds_municipio"
-                required
-                name="ds_municipio"
-                [(ngModel)]="model.companyModel.empresa.endereco.ds_municipio"
-                #ds_municipio="ngModel"
-              />
-              <div [hidden]="ds_municipio.valid" class="alert alert-danger">
-                Município da empresa é obrigatório
-              </div>
-            </div>
-          </section>
+        <div class="row">
+          <div class="col">
+            <button type="submit" class="btn btn-primary">Enviar</button>
 
-          <div class="row">
-            <div class="col">
-              <button type="submit" class="btn btn-primary">Enviar</button>
-
-              <div>
-                <hr />
-                Name via form.controls =
-                {{ showFormControls(companyForm) }}
-              </div>
+            <div>
+              <hr />
+              Name via form.controls =
+              {{ showFormControls(companyForm) }}
             </div>
           </div>
         </div>
       </div>
     </div>
-  </form>
-</div>
+  </div>
+</form>
