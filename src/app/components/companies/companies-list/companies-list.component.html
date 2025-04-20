@@ -1,5 +1,5 @@
 <div class="col col-md-6 divider">
-  <ul>
+  <ul class="px-2">
     @for (company of companies$ | async; track $index) {
     <app-company-item
       [item]="company"
