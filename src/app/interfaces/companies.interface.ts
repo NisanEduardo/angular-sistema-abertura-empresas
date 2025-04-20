@@ -2,6 +2,7 @@ export interface ICompany {
 	solicitante?: IApplicant;
 	empresa?: TEmpresa;
 	id?: number;
+	entidadeRegistro?: string;
 }
 
 interface IApplicant {
